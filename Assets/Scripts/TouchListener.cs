@@ -58,20 +58,21 @@ public class TouchListener : MonoBehaviour
         else
         {
             var dt = Time.deltaTime;
-            var diff = dt / 3;
-
+            
+            var headDiff = dt / 2;
             var hls = head.transform.localScale;
             head.transform.localScale = new Vector3(
-                ZeroMin(hls.x - diff),
-                ZeroMin(hls.y - diff),
-                ZeroMin(hls.z - diff)
+                ZeroMin(hls.x - headDiff),
+                ZeroMin(hls.y - headDiff),
+                ZeroMin(hls.z - headDiff)
             );
 
+            var bodyDiff = dt / 3;
             var bls = body.transform.localScale;
             body.transform.localScale = new Vector3(
-                ZeroMin(bls.x - diff),
-                ZeroMin(bls.y - diff),
-                ZeroMin(bls.z - diff)
+                ZeroMin(bls.x - bodyDiff),
+                ZeroMin(bls.y - bodyDiff),
+                ZeroMin(bls.z - bodyDiff)
             );
 
             if (head.transform.localScale == Vector3.zero &&
