@@ -7,7 +7,6 @@ public class SkinColorRandomizer : MonoBehaviour
 {
     //https://www.collectedwebs.com/art/colors/skin_tones/
 
-    Renderer renderer;
     public float r, g, b;
     public float a, aMin, aMax;
 
@@ -17,7 +16,7 @@ public class SkinColorRandomizer : MonoBehaviour
 
     void Start()
     {
-        renderer = GetComponent<Renderer>();
+        var renderer = GetComponent<Renderer>();
         int i = Random.Range(0, skinTones.Length);
         r = skinTones[i].x / 255f;
         g = skinTones[i].y / 255f;

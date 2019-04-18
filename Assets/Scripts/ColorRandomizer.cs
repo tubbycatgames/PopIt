@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ColorRandomizer : MonoBehaviour
 {
-    Renderer renderer;
+
     public float r, g, b;
 
     public float min, max;
@@ -16,7 +16,7 @@ public class ColorRandomizer : MonoBehaviour
 
     void Start()
     {
-        renderer = GetComponent<Renderer>();
+        var renderer = GetComponent<Renderer>();
 
         if (usingOffWhites)
         {
@@ -37,6 +37,9 @@ public class ColorRandomizer : MonoBehaviour
 
         //For now, alpha will always be 1
         Color newColor = new Color(r, g, b, 1);
-        renderer.material.SetColor("_Color", newColor);
+        if (renderer)
+        {
+            renderer.material.SetColor("_Color", newColor);
+        }
     }
 }
