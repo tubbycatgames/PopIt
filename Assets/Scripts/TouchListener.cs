@@ -3,6 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class TouchListener : MonoBehaviour
 {
+    public RandomPop randomPop;
+
     private GameObject body;
     private float initialDiameter;
     private Vector3 initialBodyScale;
@@ -45,6 +47,7 @@ public class TouchListener : MonoBehaviour
                     {
                         popping = true;
                         projectiles.Play();
+                        randomPop.PlayPop();
                     }
                     UpdateScale(reductionRatio);
                     return;
@@ -75,7 +78,7 @@ public class TouchListener : MonoBehaviour
                 head.transform.localScale == Vector3.zero)
             {
                 projectiles.Stop();
-                SceneManager.LoadSceneAsync("MainScene");
+                SceneManager.LoadScene("MainScene");
             }
         }
     }
